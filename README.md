@@ -1,35 +1,29 @@
-# Reachy Mini Sentinel 🛡️🤖
+# Reachy Empath ❤️🤖
 
-> A unique, high-value application for the Reachy Mini robot that transforms it into an intelligent Desktop Companion.
+> An emotionally intelligent companion application for the Reachy Mini robot.
 
 ## 🌟 The Concept
-**Reachy Sentinel** is a dual-purpose application designed to add tangible utility to the Reachy Mini platform:
+**Reachy Empath** is a Humane Robot Interaction (HRI) application designed to provide emotional support and companionship.
 
-1.  **Focus Guardian (When you are there):**
-    *   Reachy monitors your presence and "attention".
-    *   If you drift off (looking at phone, leaving desk) during a Focus Session, Reachy gives subtle nudges (sad sounds, head shaking).
-    *   Gamifies your productivity.
+**Core Philosophy:** "A robot that understands how you feel and helps you feel better."
 
-2.  **Sentry Mode (When you are away):**
-    *   Activates when you lock your computer or leave.
-    *   Reachy scans the room.
-    *   If it detects a person, it tracks them and can send a notification (or just look intimidating/cute).
+## 🧠 Capabilities
+1.  **Emotional Resonance (Vision):**
+    *   **Eye:** Uses `fer` (Facial Expression Recognition) to detect user emotions in real-time.
+    *   **Mirroring:** Reachy reflects your emotion physically.
 
-## 🚀 Architecture
-The system consists of two parts running in tandem:
-
-*   **Sentinel Brain (Python Backend):**
-    *   Uses `reachy-sdk` to control the robot.
-    *   Runs Computer Vision (likely `opencv` or `mediapipe`) for face/pose detection.
-    *   Exposes a FastAPI server for the UI to control modes.
-
-*   **Sentinel Command (Web Frontend):**
-    *   A beautiful Next.js Dashboard.
-    *   View the camera feed.
-    *   Start/Stop Focus sessions.
-    *   View "Distraction Scores" and stats.
+2.  **The Soul (LLM):**
+    *   **Brain:** Uses `google/gemma-2b-it` (or similar) to understand context, translate languages, and generate empathetic responses.
+    *   **Persona:** Maintains a supportive, curious, and helpful personality.
+    
+3.  **The Voice (Audio):**
+    *   **Speech:** Uses advanced TTS (e.g., `parler-tts`) to speak with compatible emotion.
+    *   **Hearing:** Uses `speech_recognition` / `whisper` to listen.
 
 ## 📦 Tech Stack
 *   **Robot:** Reachy Mini (Pollen Robotics)
-*   **Backend:** Python 3.10+, FastAPI, Reachy SDK, MediaPipe
-*   **Frontend:** Next.js, Tailwind CSS, Framer Motion
+*   **Vision:** `fer`, `opencv-python`
+*   **AI/LLM:** `transformers`, `torch` (Gemma 2B / Persona Models)
+*   **Audio:** `parler-tts` (or `gTTS` fallback), `SpeechRecognition`
+*   **Backend:** Python 3.10+, FastAPI
+*   **Frontend:** Next.js
