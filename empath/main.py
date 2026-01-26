@@ -43,15 +43,36 @@ voice = EmpathVoice()
 brain = None 
 
 def on_hear_text(text):
-    print(f"🔄 Processing heard text: {text}")
-    if brain:
-        # Visual feedback: Look up like we are thinking
-        robot.trigger_gesture("thinking")
-        
-        # Get the latest frame for visual context
-        frame = robot.get_frame()
-        response = brain.process_query(text, state.current_emotion, frame=frame)
-        voice.speak(response)
+    clean_text = text.lower()
+    wake_words = ["hello reachy", "jarvis", "tadashi", "hey reachy"]
+    
+    # Check for activation
+    is_active = any(w in clean_text for w in wake_words)
+    
+    if is_active:
+        print(f"👂 Reachy Activated via text: {text}")
+        if brain:
+            # Wake up gesture
+            robot.trigger_gesture("agree") 
+            time.sleep(0.5)
+            robot.trigger_gesture("thinking")
+            
+            frame = robot.get_frame()
+            response = brain.process_query(text, state.current_emotion, frame=frame)
+            
+            # Additional response expression
+            if "haha" in response.lower() or "lol" in response.lower() or "😊" in response:
+                robot.trigger_gesture("giggles")
+            elif "yes" in response.lower() or "sure" in response.lower():
+                robot.trigger_gesture("agree")
+            elif "sad" in response.lower() or "sorry" in response.lower():
+                robot.trigger_gesture("bashful")
+                
+            voice.speak(response)
+    else:
+        # Passive listening - only respond if it seems like it's for me or just ignore
+        # If no wake word, we might still process if it's a conversation
+        pass
 
 ear = EmpathEar(callback=on_hear_text)
 
