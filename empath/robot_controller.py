@@ -243,3 +243,46 @@ class RobotController:
             )
         finally:
             self._is_moving = False
+
+    def _giggles(self):
+        """Playful shimmy."""
+        if not self.mini: return
+        self._is_moving = True
+        try:
+            for _ in range(3):
+                self.mini.goto_target(head=create_head_pose(roll=10), duration=0.1)
+                time.sleep(0.1)
+                self.mini.goto_target(head=create_head_pose(roll=-10), duration=0.1)
+                time.sleep(0.1)
+            self.mini.goto_target(head=create_head_pose(), duration=0.2)
+        finally:
+            self._is_moving = False
+
+    def _agree(self):
+        """Nods head."""
+        if not self.mini: return
+        self._is_moving = True
+        try:
+            for _ in range(2):
+                self.mini.goto_target(head=create_head_pose(pitch=15), antennas=np.deg2rad([20, -20]), duration=0.3)
+                time.sleep(0.3)
+                self.mini.goto_target(head=create_head_pose(pitch=-5), antennas=np.deg2rad([0, 0]), duration=0.3)
+                time.sleep(0.3)
+            self.mini.goto_target(head=create_head_pose(), duration=0.3)
+        finally:
+            self._is_moving = False
+
+    def _embarrassed(self):
+        """Looks away and wiggles antennas frantically."""
+        if not self.mini: return
+        self._is_moving = True
+        try:
+            self.mini.goto_target(
+                head=create_head_pose(roll=-20, pitch=15),
+                antennas=np.deg2rad([130, 130]),
+                duration=0.5
+            )
+            time.sleep(1.0)
+            self.mini.goto_target(head=create_head_pose(), antennas=np.deg2rad([0, 0]), duration=0.5)
+        finally:
+            self._is_moving = False
