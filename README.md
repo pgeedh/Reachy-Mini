@@ -1,29 +1,52 @@
 # Reachy Empath ❤️🤖
 
-> An emotionally intelligent companion application for the Reachy Mini robot.
+> **The first emotionally intelligent companion for Reachy Mini.**
 
-## 🌟 The Concept
-**Reachy Empath** is a Humane Robot Interaction (HRI) application designed to provide emotional support and companionship.
+Reachy Empath is a Human-Robot Interaction (HRI) framework that gives the [Reachy Mini](https://www.pollen-robotics.com/reachy-mini/) robot a "soul." By combining computer vision, emotional resonance, and the cutting-edge **Gemini Robotics-ER 1.5 VLA**, Reachy can now see, feel, and respond to you with genuine empathy.
 
-**Core Philosophy:** "A robot that understands how you feel and helps you feel better."
+---
 
-## 🧠 Capabilities
-1.  **Emotional Resonance (Vision):**
-    *   **Eye:** Uses `fer` (Facial Expression Recognition) to detect user emotions in real-time.
-    *   **Mirroring:** Reachy reflects your emotion physically.
+## ✨ Key Features
 
-2.  **The Soul (LLM):**
-    *   **Brain:** Uses `google/gemma-2b-it` (or similar) to understand context, translate languages, and generate empathetic responses.
-    *   **Persona:** Maintains a supportive, curious, and helpful personality.
-    
-3.  **The Voice (Audio):**
-    *   **Speech:** Uses advanced TTS (e.g., `parler-tts`) to speak with compatible emotion.
-    *   **Hearing:** Uses `speech_recognition` / `whisper` to listen.
+- **🧠 Agentic Brain (Gemini Robotics-ER 1.5):** Uses Google DeepMind's newest Robotics model for advanced reasoning and spatial awareness.
+- **👁️ Multimodal Vision:** Reachy "sees" you through his camera and understands context beyond just text.
+- **❤️ Emotional Resonance:** Real-time facial expression tracking allows Reachy to mirror your mood.
+- **🗣️ Natural Voice interaction:** Seamless STT (Speech-to-Text) and TTS (Text-to-Speech) for fluid conversation.
+- **🎭 Expressive Gestures:** Physical movement that matches the conversation's emotional tone (Happy, Sad, Angry, Surprised, Confused, Excited, Bashful).
 
-## 📦 Tech Stack
-*   **Robot:** Reachy Mini (Pollen Robotics)
-*   **Vision:** `fer`, `opencv-python`
-*   **AI/LLM:** `transformers`, `torch` (Gemma 2B / Persona Models)
-*   **Audio:** `parler-tts` (or `gTTS` fallback), `SpeechRecognition`
-*   **Backend:** Python 3.10+, FastAPI
-*   **Frontend:** Next.js
+---
+
+## 🚀 Quick Start
+
+### 1. Requirements
+- Python 3.10+
+- A Google Gemini API Key in `.env`
+
+### 2. Launch Everything (One Command)
+Run the following to start MuJoCo, the AI Backend, and the Dashboard all at once:
+```bash
+chmod +x super_launch.sh
+./super_launch.sh
+```
+
+---
+
+## 👁️ Simulation Scene
+The MuJoCo simulation now includes:
+- **Stylized Green T-Rex** (Reachy's favorite toy).
+- **Interactive fruits** (Orange, Apple, Croissant) centered on the table.
+- **In-sim Monitor:** A virtual screen that displays your webcam feed directly to Reachy.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Robot Hardware:** Reachy Mini (Pollen Robotics)
+- **AI Core:** Google Gemini Robotics-ER 1.5 (VLA)
+- **Vision:** OpenCV, FER (Facial Expression Recognition), MediaPipe
+- **Audio:** gTTS, SpeechRecognition
+- **Framework:** FastAPI (Backend) & Next.js (Dashboard)
+
+---
+
+**Developed with ❤️ by the Neuracore Team.**
